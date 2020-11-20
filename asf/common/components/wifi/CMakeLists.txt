@@ -1,1 +1,7 @@
-add_subdirectory_ifdef(CONFIG_ATMEL_WINC1500 winc1500)
+if(CONFIG_ATMEL_WINC1500)
+    if (CONFIG_WIFI_WINC1500_19_6_1)
+        add_subdirectory(winc1500_19_6_1)
+    else()
+        add_subdirectory(winc1500)
+    endif()
+endif()
